@@ -1,0 +1,23 @@
+.frame {
+  --frame-background-color: #f0f0f0;
+  --shadow-color: #202020;
+
+  background-color: var(--frame-background-color);
+  border: 1px solid var(--frame-border-color);
+  min-height: 100vh;
+  width: auto;
+  margin-top: 85vh;
+  margin-left: 8px;
+  margin-right: 8px;
+
+  z-index: 10;
+}
+
+.presentation {
+  padding: 1rem;
+}
+
+.text-presentation {
+  color: #202020;
+  font-size: 0.875rem;
+}

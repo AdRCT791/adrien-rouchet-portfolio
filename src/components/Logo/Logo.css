@@ -1,0 +1,11 @@
+.logo-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  font-size: 2rem;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 0;
+}

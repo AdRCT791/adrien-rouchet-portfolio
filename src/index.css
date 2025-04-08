@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 
-  --background-color: #e0e0e0;
+  --background-color: #d9d9d9;
   --text-color: #646464;
   --frame-border-color: #646464;
 }
@@ -25,6 +27,11 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  font-family: 'Geist Mono', monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background-color: var(--background-color);
 }
 
 /* 6. Improve media defaults */
