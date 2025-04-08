@@ -3,6 +3,7 @@ import { siteData } from '../../data/content';
 import { ForwardedRef, forwardRef } from 'react';
 import { motion } from 'motion/react';
 import Section from '../Section/Section';
+import ProjectsList from '../ProjectsList/ProjectsList';
 
 const FrameContainer = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
   return (
@@ -11,7 +12,9 @@ const FrameContainer = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
         <p className="text-presentation">{siteData.presentation}</p>
       </div>
 
-      <Section sectionName="works" />
+      <Section sectionName="works">
+        <ProjectsList />
+      </Section>
       <Section sectionName="experience" />
     </motion.div>
   );
