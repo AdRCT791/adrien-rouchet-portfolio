@@ -4,16 +4,16 @@ import { createContext, useContext } from 'react';
 import { MotionValue } from 'motion';
 
 interface ScrollContextType {
-  scrollProgress: MotionValue<number> | null;
+  scrollProgress: MotionValue<number>;
 }
 
-export const ScrollContext = createContext<ScrollContextType>({
-  scrollProgress: null,
-});
+export const ScrollContext = createContext<ScrollContextType | undefined>(
+  undefined
+);
 
 export const useScrollContext = () => {
   const context = useContext(ScrollContext);
-  if (context.scrollProgress === null) {
+  if (!context) {
     throw new Error(
       'useScrollContext must be used within a ScrollTracker (provider)'
     );
