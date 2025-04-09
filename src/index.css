@@ -4,7 +4,8 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   --background-color: #d9d9d9;
-  --text-color: #646464;
+  --primary-text-color: #202020;
+  --secondary-text-color: #646464;
   --frame-border-color: #646464;
   --frame-background-color: #f0f0f0;
   --shadow-color: #20202074;
@@ -34,7 +35,9 @@ body {
   font-family: 'Geist Mono', monospace;
   font-optical-sizing: auto;
   font-style: normal;
+  color: var(--primary-text-color);
   background-color: var(--background-color);
+  font-size: 0.875rem;
 }
 
 /* 6. Improve media defaults */

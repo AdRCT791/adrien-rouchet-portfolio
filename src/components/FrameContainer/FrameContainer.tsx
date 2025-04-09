@@ -3,18 +3,24 @@ import { siteData } from '../../data/content';
 import { ForwardedRef, forwardRef } from 'react';
 import { motion } from 'motion/react';
 import Section from '../Section/Section';
-import ProjectsList from '../ProjectsList/ProjectsList';
+import List from '../List/List';
+import { projects } from '../../data/projects';
+import { experiences } from '../../data/experiences';
 
 const FrameContainer = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
+  const publishedProjects = projects.filter((project) => project.isPublished);
+
   return (
     <motion.div className="frame" ref={ref}>
       <div className="presentation">
         <p className="text-presentation">{siteData.presentation}</p>
       </div>
       <Section sectionName="works">
-        <ProjectsList />
+        <List items={publishedProjects} tracked={true} />
       </Section>
-      <Section sectionName="experience" />
+      <Section sectionName="experience">
+        <List items={experiences} />
+      </Section>
     </motion.div>
   );
 });

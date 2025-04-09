@@ -1,29 +1,39 @@
 import './ListItem.css';
 import { Project } from '../../data/projects';
-import { useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import { useIsAtViewportY } from '../../hooks/useIsAtViewportY';
 import { useActiveProject } from '../../hooks/useActiveProject';
+import { BaseItem } from '../../types/baseTypes';
 
-type ListItemProps = {
-  project: Project;
+type ListItemProps<T extends BaseItem> = {
+  item: T;
+  tracked?: boolean;
+  children: ReactNode;
 };
 
-const ListItem = ({ project }: ListItemProps) => {
+const ListItem = <T extends BaseItem>({
+  item,
+  tracked = false,
+  children,
+}: ListItemProps<T>) => {
   const refItem = useRef(null);
-  const isAt75Percent = useIsAtViewportY(refItem, 0.75);
+  const isAtViewportY = useIsAtViewportY(refItem, 0.75);
+  const isAt75Percent = tracked && isAtViewportY;
   const { activeProjectId, setActiveProjectId } = useActiveProject();
 
   useEffect(() => {
-    if (isAt75Percent) {
-      setActiveProjectId(project.id);
-    } else if (!isAt75Percent && activeProjectId === project.id) {
+    if (!tracked) return;
+
+    if (isAtViewportY) {
+      setActiveProjectId(item.id);
+    } else if (!isAtViewportY && activeProjectId === item.id) {
       setActiveProjectId(null);
     }
-  }, [isAt75Percent, project.id, setActiveProjectId, activeProjectId]);
+  }, [tracked, isAtViewportY, item.id, setActiveProjectId, activeProjectId]);
 
   return (
     <div ref={refItem} className={`list-item ${isAt75Percent ? 'active' : ''}`}>
-      <span>{project.name}</span>
+      {children}
     </div>
   );
 };

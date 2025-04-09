@@ -1,9 +1,15 @@
 .list-item {
   display: flex;
   width: 100%;
-  padding: 4px;
+  padding: 0px 4px;
+  font-size: 0.75rem;
+  justify-content: space-between;
 }
 
 .list-item.active {
   background-color: var(--background-color);
+}
+
+.list-item span:last-child {
+  color: var(--secondary-text-color);
 }

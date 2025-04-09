@@ -22,9 +22,7 @@ const PreviewPopUp = () => {
         },
       }}
       style={{ backgroundImage: `url(${activeProject?.thumbnailImage})` }}
-    >
-      <span>{activeProject?.name}</span>
-    </motion.div>
+    ></motion.div>
   );
 };
 
