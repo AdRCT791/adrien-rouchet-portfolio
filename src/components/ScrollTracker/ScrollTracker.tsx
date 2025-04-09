@@ -10,7 +10,7 @@ interface ScrollTrackerProps {
 const ScrollTracker = ({ children, targetRef }: ScrollTrackerProps) => {
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ['start start', 'end start'],
+    offset: ['start center', 'end start'],
   });
 
   return (

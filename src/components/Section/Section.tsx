@@ -12,7 +12,7 @@ const Section = ({ sectionName, children }: SectionProps) => {
   const sectionRef = useRef(null);
   const { setActiveSection } = useSectionContext();
   const isInView = useInView(sectionRef, {
-    amount: 1,
+    amount: 0.75,
     once: false,
   });
 

@@ -3,6 +3,8 @@
   height: 50vh;
   width: auto;
   background-color: var(--frame-background-color);
+  background-size: cover;
+  background-position: center;
   border: 1px solid var(--frame-border-color);
   z-index: 200;
   top: calc(var(--header-height) + 8px);
@@ -10,4 +12,8 @@
   left: 16px;
   box-shadow: 4px 4px var(--shadow-color);
   transform-origin: center center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

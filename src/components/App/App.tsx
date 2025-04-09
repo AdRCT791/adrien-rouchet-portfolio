@@ -7,6 +7,7 @@ import ScrollTracker from '../ScrollTracker/ScrollTracker';
 import { AnimatePresence } from 'motion/react';
 import PreviewPopUp from '../PreviewPopUp/PreviewPopUp';
 import { SectionContext } from '../../context/SectionContext';
+import { ActiveProjectProvider } from '../Providers/ActiveProjectProvider';
 
 const App = () => {
   const frameRef = useRef<HTMLDivElement>(null);
@@ -19,14 +20,16 @@ const App = () => {
   return (
     <SectionContext.Provider value={{ activeSection, setActiveSection }}>
       <ScrollTracker targetRef={frameRef}>
-        <div className="app">
-          <Header />
-          <BgFrame />
-          <AnimatePresence mode="wait">
-            {activeSection === 'works' && <PreviewPopUp />}
-          </AnimatePresence>
-          <FrameContainer ref={frameRef} />
-        </div>
+        <ActiveProjectProvider>
+          <div className="app">
+            <Header />
+            <BgFrame />
+            <AnimatePresence mode="wait">
+              {activeSection === 'works' && <PreviewPopUp />}
+            </AnimatePresence>
+            <FrameContainer ref={frameRef} />
+          </div>
+        </ActiveProjectProvider>
       </ScrollTracker>
     </SectionContext.Provider>
   );

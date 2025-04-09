@@ -11,7 +11,6 @@ const FrameContainer = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
       <div className="presentation">
         <p className="text-presentation">{siteData.presentation}</p>
       </div>
-
       <Section sectionName="works">
         <ProjectsList />
       </Section>

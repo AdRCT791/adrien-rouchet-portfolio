@@ -1,7 +1,13 @@
 import { motion } from 'motion/react';
 import './PreviewPopUp.css';
+import { useActiveProject } from '../../hooks/useActiveProject';
+import { projects } from '../../data/projects';
 
 const PreviewPopUp = () => {
+  const { activeProjectId } = useActiveProject();
+  const activeProject = projects.find(
+    (project) => project.id === activeProjectId
+  );
   return (
     <motion.div
       className="preview-popup"
@@ -15,7 +21,10 @@ const PreviewPopUp = () => {
           origin: 'center',
         },
       }}
-    ></motion.div>
+      style={{ backgroundImage: `url(${activeProject?.thumbnailImage})` }}
+    >
+      <span>{activeProject?.name}</span>
+    </motion.div>
   );
 };
 

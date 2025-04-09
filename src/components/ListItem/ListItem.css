@@ -1,0 +1,8 @@
+.list-item {
+  /* Your existing styles */
+}
+
+.list-item.active {
+  /* Styles for active state */
+  background-color: red;
+}
