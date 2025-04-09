@@ -1,20 +1,9 @@
-import { useEffect, useState } from 'react';
-import { useScrollContext } from '../../context/ScrollContext';
 import { siteData } from '../../data/content';
+import { useScrollProgress } from '../../hooks/useScrollProgress';
 import './Header.css';
 
 const Header = () => {
-  const { scrollProgress } = useScrollContext();
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const unsubscribe = scrollProgress.on('change', (v) => {
-      setProgress(v * 100);
-    });
-
-    return () => unsubscribe();
-  }, [scrollProgress]);
-
+  const progress = useScrollProgress();
   return (
     <div className="header">
       <span>{siteData.copyright}</span>

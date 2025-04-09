@@ -9,7 +9,7 @@ export interface SiteInfo {
 export const siteData = {
   title: 'adrien rouchet',
   location: 'stockholm - sweden',
-  contact: 'adriem.rouchet@pm.me',
+  contact: 'adrien.rouchet@pm.me',
   copyright: '© adrienrouchet',
   presentation: `Architect. Web Developer. I build beautiful, functional experiences, both online and offline.`,
 };

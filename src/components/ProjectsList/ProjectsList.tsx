@@ -1,6 +1,6 @@
 import './ProjectsList.css';
 import { projects } from '../../data/projects';
-import { div } from 'motion/react-client';
+import ListItem from '../ListItem/ListItem';
 
 const ProjectsList = () => {
   const publishedProjects = projects.filter((project) => project.isPublished);
@@ -8,7 +8,7 @@ const ProjectsList = () => {
   return (
     <div className="projects-list">
       {publishedProjects.map((project) => (
-        <div key={project.id}>{project.name}</div>
+        <ListItem key={project.id} project={project} />
       ))}
     </div>
   );

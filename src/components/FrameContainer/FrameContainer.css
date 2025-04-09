@@ -1,7 +1,4 @@
 .frame {
-  --frame-background-color: #f0f0f0;
-  --shadow-color: #202020;
-
   background-color: var(--frame-background-color);
   border: 1px solid var(--frame-border-color);
   min-height: 100vh;
