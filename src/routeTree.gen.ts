@@ -13,6 +13,8 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
+import { Route as WorksIndexImport } from './routes/works/index'
+import { Route as WorksWorkNameImport } from './routes/works/$workName'
 
 // Create/Update Routes
 
@@ -25,6 +27,18 @@ const AboutRoute = AboutImport.update({
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const WorksIndexRoute = WorksIndexImport.update({
+  id: '/works/',
+  path: '/works/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const WorksWorkNameRoute = WorksWorkNameImport.update({
+  id: '/works/$workName',
+  path: '/works/$workName',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -46,6 +60,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutImport
       parentRoute: typeof rootRoute
     }
+    '/works/$workName': {
+      id: '/works/$workName'
+      path: '/works/$workName'
+      fullPath: '/works/$workName'
+      preLoaderRoute: typeof WorksWorkNameImport
+      parentRoute: typeof rootRoute
+    }
+    '/works/': {
+      id: '/works/'
+      path: '/works'
+      fullPath: '/works'
+      preLoaderRoute: typeof WorksIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -54,36 +82,46 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/works/$workName': typeof WorksWorkNameRoute
+  '/works': typeof WorksIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/works/$workName': typeof WorksWorkNameRoute
+  '/works': typeof WorksIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/works/$workName': typeof WorksWorkNameRoute
+  '/works/': typeof WorksIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about'
+  fullPaths: '/' | '/about' | '/works/$workName' | '/works'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about'
-  id: '__root__' | '/' | '/about'
+  to: '/' | '/about' | '/works/$workName' | '/works'
+  id: '__root__' | '/' | '/about' | '/works/$workName' | '/works/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  WorksWorkNameRoute: typeof WorksWorkNameRoute
+  WorksIndexRoute: typeof WorksIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  WorksWorkNameRoute: WorksWorkNameRoute,
+  WorksIndexRoute: WorksIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,7 +135,9 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about"
+        "/about",
+        "/works/$workName",
+        "/works/"
       ]
     },
     "/": {
@@ -105,6 +145,12 @@ export const routeTree = rootRoute
     },
     "/about": {
       "filePath": "about.tsx"
+    },
+    "/works/$workName": {
+      "filePath": "works/$workName.tsx"
+    },
+    "/works/": {
+      "filePath": "works/index.tsx"
     }
   }
 }

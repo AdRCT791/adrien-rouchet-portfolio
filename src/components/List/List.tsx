@@ -3,35 +3,29 @@ import './List.css';
 import ListItem from '../ListItem/ListItem';
 import { BaseItem } from '../../types/baseTypes';
 import { ReactNode } from 'react';
-import { Project } from '../../data/projects';
 
-function isProject(item: BaseItem): item is Project {
-  return 'type' in item;
-}
+type ItemFields<T> = {
+  [K in keyof T]?: boolean;
+};
 
 type ListProps<T extends BaseItem> = {
   items: T[];
   tracked?: boolean;
-  renderItem?: (item: T) => ReactNode;
+  renderItem: (item: T, fields?: ItemFields<T>) => ReactNode;
+  fields: ItemFields<T>;
 };
 
 const List = <T extends BaseItem>({
   items,
   tracked = false,
   renderItem,
+  fields,
 }: ListProps<T>) => {
-  const defaultRender = (item: T) => (
-    <>
-      <span>{item.name.toUpperCase()}</span>
-      {isProject(item) && <span>{item.type}</span>}
-    </>
-  );
-
   return (
     <div className="list">
       {items.map((item) => (
         <ListItem<T> tracked={tracked} key={item.id} item={item}>
-          {renderItem ? renderItem(item) : defaultRender(item)}
+          {renderItem(item, fields)}
         </ListItem>
       ))}
     </div>

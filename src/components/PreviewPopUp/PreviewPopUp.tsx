@@ -2,12 +2,22 @@ import { motion } from 'motion/react';
 import './PreviewPopUp.css';
 import { useActiveProject } from '../../hooks/useActiveProject';
 import { projects } from '../../data/projects';
+import { useNavigate } from '@tanstack/react-router';
 
 const PreviewPopUp = () => {
+  const navigate = useNavigate();
   const { activeProjectId } = useActiveProject();
   const activeProject = projects.find(
     (project) => project.id === activeProjectId
   );
+
+  const handleClick = () => {
+    if (activeProject) {
+      const projectName = activeProject.name.toLowerCase().replace(/ /g, '-');
+      navigate({ to: `/works/${projectName}` });
+    }
+  };
+
   return (
     <motion.div
       className="preview-popup"
@@ -22,6 +32,7 @@ const PreviewPopUp = () => {
         },
       }}
       style={{ backgroundImage: `url(${activeProject?.thumbnailImage})` }}
+      onClick={handleClick}
     ></motion.div>
   );
 };

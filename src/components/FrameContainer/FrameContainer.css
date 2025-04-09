@@ -17,3 +17,7 @@
 .text-presentation {
   color: #202020;
 }
+
+.frame section:first-of-type {
+  margin-top: 50px;
+}

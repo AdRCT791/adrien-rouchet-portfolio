@@ -1,5 +1,4 @@
 import './ListItem.css';
-import { Project } from '../../data/projects';
 import { ReactNode, useEffect, useRef } from 'react';
 import { useIsAtViewportY } from '../../hooks/useIsAtViewportY';
 import { useActiveProject } from '../../hooks/useActiveProject';

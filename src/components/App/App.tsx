@@ -13,9 +13,9 @@ const App = () => {
   const frameRef = useRef<HTMLDivElement>(null);
   const [activeSection, setActiveSection] = useState('');
 
-  useEffect(() => {
-    console.log('Active Section:', activeSection);
-  }, [activeSection]);
+  // useEffect(() => {
+  //   console.log('Active Section:', activeSection);
+  // }, [activeSection]);
 
   return (
     <SectionContext.Provider value={{ activeSection, setActiveSection }}>

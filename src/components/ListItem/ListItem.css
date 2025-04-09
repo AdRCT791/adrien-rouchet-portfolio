@@ -3,13 +3,17 @@
   width: 100%;
   padding: 0px 4px;
   font-size: 0.75rem;
-  justify-content: space-between;
+  /* gap: 0.25rem; */
 }
 
 .list-item.active {
   background-color: var(--background-color);
 }
 
-.list-item span:last-child {
-  color: var(--secondary-text-color);
+.list-item span:first-child {
+  margin-right: auto;
+}
+
+.list-item span:nth-child(n + 3):last-child::before {
+  content: '-';
 }

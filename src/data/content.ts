@@ -10,6 +10,6 @@ export const siteData = {
   title: 'adrien rouchet',
   location: 'stockholm - sweden',
   contact: 'adrien.rouchet@pm.me',
-  copyright: '© adrienrouchet',
+  copyright: 'AR',
   presentation: `Architect. Web Developer. I build beautiful, functional experiences, both online and offline.`,
 };
