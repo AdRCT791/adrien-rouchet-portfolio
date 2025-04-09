@@ -23,7 +23,7 @@ const ListItem = ({ project }: ListItemProps) => {
 
   return (
     <div ref={refItem} className={`list-item ${isAt75Percent ? 'active' : ''}`}>
-      {project.name}
+      <span>{project.name}</span>
     </div>
   );
 };

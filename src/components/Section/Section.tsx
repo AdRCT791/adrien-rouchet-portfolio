@@ -10,7 +10,7 @@ type SectionProps = {
 
 const Section = ({ sectionName, children }: SectionProps) => {
   const sectionRef = useRef(null);
-  const { setActiveSection } = useSectionContext();
+  const { activeSection, setActiveSection } = useSectionContext();
   const isInView = useInView(sectionRef, {
     amount: 0.75,
     once: false,
@@ -19,10 +19,10 @@ const Section = ({ sectionName, children }: SectionProps) => {
   useEffect(() => {
     if (isInView) {
       setActiveSection(sectionName);
-    } else {
+    } else if (!isInView && activeSection === sectionName) {
       setActiveSection('');
     }
-  }, [isInView, sectionName, setActiveSection]);
+  }, [isInView, sectionName, setActiveSection, activeSection]);
 
   return (
     <section className="section" ref={sectionRef}>

@@ -1,8 +1,9 @@
 .list-item {
-  /* Your existing styles */
+  display: flex;
+  width: 100%;
+  padding: 4px;
 }
 
 .list-item.active {
-  /* Styles for active state */
-  background-color: red;
+  background-color: var(--background-color);
 }
