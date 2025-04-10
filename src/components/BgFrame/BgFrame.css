@@ -8,3 +8,8 @@
   position: fixed;
   z-index: 0;
 }
+
+.bg-container h1 {
+  font-weight: 500;
+  font-size: 2rem;
+}

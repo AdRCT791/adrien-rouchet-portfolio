@@ -2,6 +2,12 @@ import { Experience } from '../types/baseTypes';
 
 export const experiences: Experience[] = [
   {
+    id: '00',
+    name: 'FMAU',
+    yearEnd: new Date('2015-06-01'),
+    isPublished: true,
+  },
+  {
     id: '01',
     name: 'Bourbouze & Graindorge',
     yearStart: new Date('2016-06-01'),

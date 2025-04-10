@@ -5,7 +5,7 @@ export interface BaseItem {
 }
 
 export interface Experience extends BaseItem {
-  yearStart: Date;
+  yearStart?: Date;
   yearEnd: Date | 'present';
 }
 

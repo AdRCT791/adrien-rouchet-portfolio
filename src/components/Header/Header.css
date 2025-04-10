@@ -11,3 +11,19 @@
   font-size: 0.875rem;
   background-color: var(--background-color);
 }
+
+.logo-container {
+  display: flex;
+  width: auto;
+  gap: 10px;
+}
+
+.logo-container span {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.word {
+  display: flex;
+  flex-direction: row;
+}
