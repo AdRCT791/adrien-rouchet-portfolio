@@ -39,8 +39,12 @@ const FrameContainer = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
           renderItem={(item, fields) => (
             <>
               {fields?.name && <span>{item.name.toUpperCase()}</span>}
-              {fields?.yearStart && <span>{formatYear(item.yearStart)}</span>}
-              {fields?.yearEnd && <span>{formatYear(item.yearEnd)}</span>}
+              {fields?.yearStart && item.yearStart && (
+                <span>{formatYear(item.yearStart)}</span>
+              )}
+              {fields?.yearEnd && item.yearEnd && (
+                <span>{formatYear(item.yearEnd)}</span>
+              )}
             </>
           )}
         />
